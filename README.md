@@ -3,6 +3,13 @@
 Overview
 
 ## Description
+### Dependencies
+- org.springframework.boot
+  - spring-boot-starter-data-mongodb-reactive
+  - spring-boot-starter-data-r2dbc
+  - spring-boot-starter-webflux
+- io.r2dbc:r2dbc-postgresql
+- org.postgresql:postgresql
 
 ## Demo
 
