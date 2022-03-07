@@ -4,10 +4,10 @@ import io.spring.reactive.entity.Customer
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.support.GeneratedKeyHolder
 import java.sql.ResultSet
+import javax.sql.DataSource
 
 
-open class BaseCustomerService(
-    ) : CustomerService {
+open class BaseCustomerService(val ds: DataSource) : CustomerService {
     val rowMapper = {rs: ResultSet, i: Int ->
         Customer(
             rs.getLong("id"),
