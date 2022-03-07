@@ -1,8 +1,13 @@
 package io.spring.reactive.service
 
 import io.spring.reactive.entity.Customer
+import org.springframework.jdbc.core.JdbcTemplate
+import java.sql.ResultSet
 
-class BaseCustomerService : CustomerService {
+class BaseCustomerService(
+    val jdbcTemplate: JdbcTemplate) : CustomerService {
+
+
     override fun save(names: String): Collection<Customer> {
         TODO("Not yet implemented")
     }
