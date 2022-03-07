@@ -8,7 +8,7 @@ import javax.sql.DataSource
 
 
 open class BaseCustomerService(val ds: DataSource) : CustomerService {
-    val rowMapper = {rs: ResultSet, i: Int ->
+    private val rowMapper = { rs: ResultSet, i: Int ->
         Customer(
             rs.getLong("id"),
             rs.getString("name"))
