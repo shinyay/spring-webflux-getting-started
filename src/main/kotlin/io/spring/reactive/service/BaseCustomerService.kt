@@ -26,12 +26,12 @@ class BaseCustomerService(
             }, keyHolder)
             val keyHolderKey = keyHolder.key?.toLong()
             val customer = this.findById(keyHolderKey!!)
-            customerList.add(customer)
+            customerList.add(customer!!)
         }
         return customerList
     }
 
-    fun findById(id: Long?): Customer? {
+    override fun findById(id: Long): Customer? {
         val sql = "select * from CUSTOMERS where id = ?"
         return jdbcTemplate.queryForObject(sql, this.rowMapper, id)
     }
