@@ -7,5 +7,6 @@ import org.springframework.boot.runApplication
 class DemoApplication
 
 fun main(args: Array<String>) {
+	System.setProperty("spring.profiles.active", "prod")
 	runApplication<DemoApplication>(*args)
 }
