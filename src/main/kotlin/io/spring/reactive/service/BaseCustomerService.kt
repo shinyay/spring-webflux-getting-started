@@ -6,19 +6,21 @@ import org.springframework.jdbc.support.GeneratedKeyHolder
 import java.sql.ResultSet
 
 
-class BaseCustomerService(
-    val jdbcTemplate: JdbcTemplate) : CustomerService {
+open class BaseCustomerService(
+    ) : CustomerService {
     val rowMapper = {rs: ResultSet, i: Int ->
         Customer(
             rs.getLong("id"),
             rs.getString("name"))
     }
 
+    private val jdbcTemplate: JdbcTemplate? = null
+
     override fun save(vararg names: String): Collection<Customer> {
         val customerList = mutableListOf<Customer>()
         for (name in names) {
             val keyHolder = GeneratedKeyHolder()
-            jdbcTemplate.update({
+            jdbcTemplate?.update({
                 connection ->
                 val ps = connection.prepareStatement("insert into CUSTOMERS (name) values (?)")
                 ps.setString(1, name)
@@ -33,11 +35,11 @@ class BaseCustomerService(
 
     override fun findById(id: Long): Customer? {
         val sql = "select * from CUSTOMERS where id = ?"
-        return jdbcTemplate.queryForObject(sql, this.rowMapper, id)
+        return jdbcTemplate?.queryForObject(sql, this.rowMapper, id)
     }
 
-    override fun findAll(): Collection<Customer> {
+    override fun findAll(): MutableList<Customer>? {
         val sql = "select * from CUSTOMERS"
-        return jdbcTemplate.query(sql, this.rowMapper)
+        return jdbcTemplate?.query(sql, this.rowMapper)
     }
 }
