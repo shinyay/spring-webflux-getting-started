@@ -37,6 +37,7 @@ class BaseCustomerService(
     }
 
     override fun findAll(): Collection<Customer> {
-        TODO("Not yet implemented")
+        val sql = "select * from CUSTOMERS"
+        return jdbcTemplate.query(sql, this.rowMapper)
     }
 }
