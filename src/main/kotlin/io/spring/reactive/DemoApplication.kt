@@ -1,8 +1,10 @@
 package io.spring.reactive
 
+import io.spring.reactive.service.CustomerService
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Profile
+import org.springframework.stereotype.Component
 
 @SpringBootApplication
 class DemoApplication
@@ -13,5 +15,6 @@ fun main(args: Array<String>) {
 }
 
 @Profile("dev")
-class DemoListener {
+@Component
+class DemoListener(val customerService: CustomerService) {
 }
