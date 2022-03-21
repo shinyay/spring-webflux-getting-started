@@ -14,6 +14,8 @@ Overview
 ### Components
 #### CustomerService Interface
 
+#### BaseCustomerService
+
 ## Demo
 
 ## Features
