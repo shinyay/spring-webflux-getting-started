@@ -16,6 +16,10 @@ Overview
 
 #### BaseCustomerService
 
+classDiagram
+CustomerService <|-- BaseCustomerService
+
+
 ## Demo
 
 ## Features
