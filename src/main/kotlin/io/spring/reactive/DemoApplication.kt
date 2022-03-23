@@ -17,4 +17,8 @@ fun main(args: Array<String>) {
 @Profile("dev")
 @Component
 class DemoListener(val customerService: CustomerService) {
+
+	fun exercise() {
+		Demo.work(customerService)
+    }
 }
