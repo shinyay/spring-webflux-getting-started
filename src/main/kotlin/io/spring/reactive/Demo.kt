@@ -9,6 +9,7 @@ class Demo {
             customer -> {
                 val customerId = customer.id
                 val customerById = customerService.findById(customerId)
+                println("Found: $customerById")
             }
         }
     }
