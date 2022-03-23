@@ -16,9 +16,12 @@ Overview
 
 #### BaseCustomerService
 
+```mermaid
 classDiagram
 CustomerService <|-- BaseCustomerService
+```
 
+```mermaid
 classDiagram
 Class01 <|-- AveryLongClass : Cool
 <<Interface>> Class01
@@ -35,6 +38,7 @@ class Class10 {
 int id
 size()
 }
+```
 
 ## Demo
 
